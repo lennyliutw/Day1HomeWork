@@ -44,6 +44,11 @@ namespace Day1HomeWork.Controllers
         // GET: AccountBooks/Create
         public ActionResult Create()
         {
+            List<SelectListItem> item = new List<SelectListItem>();
+            item.Add(new SelectListItem() { Text = "1.收入", Value = "1", Selected = true });
+            item.Add(new SelectListItem() { Text = "2.支出", Value = "2", Selected = false });
+            ViewData["Categoryyy"] = item;
+           
             return View();
         }
 
@@ -61,20 +66,6 @@ namespace Day1HomeWork.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            else
-            {
-                List < SelectListItem > item = new List<SelectListItem>();
-                item.Add(new SelectListItem()
-                {
-                    Text="1.收入",Value="1"
-                });
-                item.Add(new SelectListItem()
-                {
-                    Text = "2.支出",
-                    Value = "2"
-                });
-                ViewBag.CategoryItem = item;
-            }
             return View(accountBook);
         }
 
@@ -90,6 +81,20 @@ namespace Day1HomeWork.Controllers
             {
                 return HttpNotFound();
             }
+            List<SelectListItem> item = new List<SelectListItem>();
+            
+            switch (accountBook.Categoryyy.ToString())
+            {
+                case "1":
+                    item.Add(new SelectListItem() { Text = "1.收入", Value = "1", Selected = true });
+                    item.Add(new SelectListItem() { Text = "2.支出", Value = "2", Selected = false });
+                    break;
+                case "2":
+                    item.Add(new SelectListItem() { Text = "1.收入", Value = "1", Selected = false });
+                    item.Add(new SelectListItem() { Text = "2.支出", Value = "2", Selected = true });
+                    break;
+            }
+            ViewData["Categoryyy"] = item;
             return View(accountBook);
         }
 

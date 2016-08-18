@@ -14,7 +14,7 @@
         [DisplayName("編號")]
         public Guid Id { get; set; }
 
-        [DisplayName("分類")]
+        [DisplayName("收支別")]
         public int Categoryyy { get; set; }
 
         [DisplayName("金額")]
@@ -39,7 +39,7 @@
             {
                 if (this.Remarkkk.Length > 30)
                 {
-                    return this.Remarkkk.Substring(0, 30);
+                    return this.Remarkkk.Substring(0, 30) + " ...";
                 }
                 else
                 {
