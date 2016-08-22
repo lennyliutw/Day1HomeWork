@@ -82,19 +82,18 @@ namespace Day1HomeWork.Controllers
                 return HttpNotFound();
             }
             List<SelectListItem> item = new List<SelectListItem>();
-            
             switch (accountBook.Categoryyy.ToString())
             {
                 case "1":
                     item.Add(new SelectListItem() { Text = "1.收入", Value = "1", Selected = true });
-                    item.Add(new SelectListItem() { Text = "2.支出", Value = "2", Selected = false });
+                    item.Add(new SelectListItem() { Text = "2.支出", Value = "0", Selected = false });
                     break;
-                case "2":
+                case "0":
                     item.Add(new SelectListItem() { Text = "1.收入", Value = "1", Selected = false });
-                    item.Add(new SelectListItem() { Text = "2.支出", Value = "2", Selected = true });
+                    item.Add(new SelectListItem() { Text = "2.支出", Value = "0", Selected = true });
                     break;
             }
-            ViewData["Categoryyy"] = item;
+            ViewData["CategoryList"] = item;
             return View(accountBook);
         }
 

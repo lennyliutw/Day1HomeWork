@@ -12,6 +12,7 @@
     {
        
         [DisplayName("編號")]
+        [Key]
         public Guid Id { get; set; }
 
         [DisplayName("收支別")]
@@ -56,11 +57,11 @@
             {
                 if (this.Categoryyy == 1)
                 {
-                    return "1.支出";
+                    return "1.收入";
                 }
                 else
                 {
-                    return "2.收入";
+                    return "2.支出";
                 }
             }
         }
