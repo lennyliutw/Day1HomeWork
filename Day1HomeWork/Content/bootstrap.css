@@ -6783,6 +6783,14 @@ td.hidden-lg {
   display: none !important;
 }
 
+.wordblue {
+  color:blue;
+}
+
+.wordred {
+  color:red;
+}
+
 tr.visible-print {
   display: none !important;
 }

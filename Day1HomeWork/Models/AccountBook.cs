@@ -19,6 +19,7 @@
         public int Categoryyy { get; set; }
 
         [DisplayName("金額")]
+        [ ]
         public int Amounttt { get; set; }
 
         [DisplayName("日期")]

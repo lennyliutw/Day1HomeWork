@@ -81,6 +81,8 @@ namespace Day1HomeWork.Controllers
             {
                 return HttpNotFound();
             }
+
+            #region DropDownListFor 
             List<SelectListItem> item = new List<SelectListItem>();
             switch (accountBook.Categoryyy.ToString())
             {
@@ -94,12 +96,11 @@ namespace Day1HomeWork.Controllers
                     break;
             }
             ViewData["CategoryList"] = item;
+            #endregion
+
             return View(accountBook);
         }
 
-        // POST: AccountBooks/Edit/5
-        // 若要免於過量張貼攻擊，請啟用想要繫結的特定屬性，如需
-        // 詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Categoryyy,Amounttt,Dateee,Remarkkk")] AccountBook accountBook)
@@ -148,4 +149,5 @@ namespace Day1HomeWork.Controllers
             base.Dispose(disposing);
         }
     }
+
 }
