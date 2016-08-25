@@ -5,7 +5,7 @@ using System.Text;
 using System.Data.Entity;
 using Day1HomeWork.Models;
 
-namespace Day1Homework.Repositories
+namespace Day1HomeWork.Repositories
 {
     public class EFUnitOfWork : IUnitOfWork
     {
@@ -16,6 +16,14 @@ namespace Day1Homework.Repositories
             Context = new Model1();
         }
 
+        public void create()
+        {
+           
+        }
+        public void edit()
+        {
+
+        }
         public void Save()
         {
             Context.SaveChanges();

@@ -48,7 +48,7 @@ namespace Day1HomeWork.Controllers
             item.Add(new SelectListItem() { Text = "1.收入", Value = "1", Selected = true });
             item.Add(new SelectListItem() { Text = "2.支出", Value = "2", Selected = false });
             ViewData["Categoryyy"] = item;
-           
+
             return View();
         }
 
@@ -148,6 +148,13 @@ namespace Day1HomeWork.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult BeforeToday(DateTime date)
+        {
+            bool isValidate = date.Date <= DateTime.Today;
+            return Json(isValidate, JsonRequestBehavior.AllowGet);
+        }
+
     }
 
 }
